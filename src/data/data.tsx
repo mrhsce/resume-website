@@ -13,18 +13,18 @@ import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
 import TwitterIcon from '../components/Icon/TwitterIcon';
-import heroImage from '../images/header-background.webp';
+import heroImage from '../images/header-background.jpg';
 import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
-import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
-import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
-import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
-import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
-import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
-import porfolioImage7 from '../images/portfolio/portfolio-7.jpg';
-import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
-import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
-import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
-import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
+// import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
+// import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
+// import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
+// import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
+// import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
+// import porfolioImage7 from '../images/portfolio/portfolio-7.jpg';
+// import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
+// import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
+// import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
+// import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
 import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
@@ -44,8 +44,8 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'Muhammadreza Heydarian - Software Engineer',
-  description: 'Portfolio of Muhammadreza Heydarian, a MSc graduate in Computer Engineering with extensive experience in software development and research.',
+  title: 'Mohammadreza Heydarian - PhD researcher, software engineer',
+  description: 'Portfolio of Mohammadreza Heydarian, a PhD student of Computer Science Engineering with extensive experience in software development and research.',
 };
 
 /**
@@ -69,17 +69,21 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `I'm Muhammadreza Heydarian.`,
+  name: `I'm Mohammadreza Heydarian.`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I am an <strong className="text-stone-100">MSc graduate in Computer Engineering</strong> from Sharif University of Technology, with a deep passion for <strong className="text-stone-100">software development</strong> and research in <strong className="text-stone-100">IoT, Cyber-physical Systems</strong>, and <strong className="text-stone-100">Machine Learning</strong>. With over seven years of professional experience, I thrive on solving challenging problems and learning new technologies.
+        I am currently a <strong className="text-stone-100">PhD researcher at Ghent University - Imec</strong>, where I am part of the <strong className="text-stone-100">Fixed Internet Architectures & Optical Networks (FARON) research group</strong>. I earned my <strong className="text-stone-100">MSc in Computer Engineering</strong> from Sharif University of Technology, Iran, in 2019, and my <strong className="text-stone-100">BSc from the Iran University of Science and Technology</strong> in 2016.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        Outside of work, I enjoy <strong className="text-stone-100">reading</strong>, <strong className="text-stone-100">swimming</strong>, playing <strong className="text-stone-100">video games</strong>, <strong className="text-stone-100">cycling</strong>, and <strong className="text-stone-100">mountain hiking</strong>. These activities help me maintain a balanced and healthy lifestyle.
+        With a deep passion for <strong className="text-stone-100">software development</strong> and research in <strong className="text-stone-100">IoT, Cyber-Physical Systems</strong>, and <strong className="text-stone-100">Machine Learning</strong>, I bring over seven years of professional experience. My PhD research focuses on <strong className="text-stone-100">Time-Sensitive Networks (TSN)</strong> and <strong className="text-stone-100">mmWave MIMO systems</strong>, with the goal of leveraging MIMO technology to optimize TSN networks for improved performance. I am also involved in several projects, including <strong className="text-stone-100">"SHAPE: Next Generation Wireless Networks"</strong>. I thrive on solving complex industrial challenges and am always eager to learn and adopt new technologies.
+      </p>
+      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+        Outside of work, I enjoy <strong className="text-stone-100">reading</strong>, <strong className="text-stone-100">listening to podcasts</strong>, playing <strong className="text-stone-100">video games</strong>, <strong className="text-stone-100">cycling</strong>, and <strong className="text-stone-100">mountain hiking</strong>—activities that help me maintain a balanced and healthy lifestyle.
       </p>
     </>
   ),
+
   actions: [
     {
       href: '/assets/resume.pdf',
@@ -100,14 +104,14 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic, // Assuming 'profilepic' is the correct reference to his profile picture
-  description: `MSc graduate of computer engineering from Sharif University of Technology and BSc from Iran University of Science and Technology, with over seven years of professional experience in software development across a range of languages, frameworks, and technologies. My research interests include IoT, Cyber-physical Systems, Edge Computing, and Machine Learning. I am passionate about solving challenging problems and learning new technologies.`,
+  description: `PhD researcher at Ghent University focusing on Time-Sensitive Networks (TSN) and mmWave MIMO systems. With over seven years of professional experience, I specialize in software development, IoT, and Machine Learning. I am passionate about solving complex problems and continuously exploring new technologies.`,
   aboutItems: [
-    {label: 'Location', text: 'District 5, Karaj, Iran', Icon: MapIcon},
-    {label: 'Age', text: '27', Icon: CalendarIcon},
+    {label: 'Location', text: 'Technologiepark-Zwijnaarde 126, 9052 Gent, Belgium', Icon: MapIcon},
+    {label: 'Age', text: '30', Icon: CalendarIcon},
     {label: 'Nationality', text: 'Iranian', Icon: FlagIcon},
-    {label: 'Interests', text: 'Reading, Swimming, Video Games, Cycling, Mountain Hiking', Icon: SparklesIcon},
-    {label: 'Study', text: 'Sharif University of Technology, Iran University of Science and Technology', Icon: AcademicCapIcon},
-    {label: 'Employment', text: 'Full-stack Developer at RKAA Group', Icon: BuildingOffice2Icon},
+    {label: 'Interests', text: 'Reading, Podcasts, Video Games, Cycling, Mountain Hiking', Icon: SparklesIcon},
+    {label: 'Study', text: 'Ghent University, Sharif University of Technology, Iran University of Science and Technology', Icon: AcademicCapIcon},
+    {label: 'Employment', text: 'PhD researcher at Ghent University - Imec', Icon: BuildingOffice2Icon},
   ],
 };
 
@@ -124,19 +128,15 @@ export const skills: SkillGroup[] = [
       },
       {
         name: 'Kurdish',
-        level: 8, // Assumed proficiency level
+        level: 10, // Assumed proficiency level
       },
       {
         name: 'Persian',
         level: 10, // Native proficiency
       },
       {
-        name: 'Arabic',
+        name: 'Dutch',
         level: 4, // Basic proficiency
-      },
-      {
-        name: 'Spanish',
-        level: 3, // Elementary proficiency
       },
     ],
   },
@@ -144,27 +144,15 @@ export const skills: SkillGroup[] = [
     name: 'Programming Skills',
     skills: [
       {
-        name: 'React-Native',
-        level: 9,
-      },
-      {
-        name: 'Java (Android)',
-        level: 8,
-      },
-      {
         name: 'Python',
         level: 9,
       },
       {
-        name: 'GIT',
+        name: 'JavaScript',
         level: 9,
       },
       {
-        name: 'SQL',
-        level: 8,
-      },
-      {
-        name: 'JavaScript',
+        name: 'Prompt Engineering',
         level: 9,
       },
       {
@@ -172,15 +160,19 @@ export const skills: SkillGroup[] = [
         level: 8,
       },
       {
-        name: 'PHP',
-        level: 7,
+        name: 'GIT',
+        level: 8,
+      },
+      {
+        name: 'SQL',
+        level: 8,
       },
       {
         name: 'Linux',
         level: 8,
       },
       {
-        name: 'Angular',
+        name: 'React Native',
         level: 7,
       },
       {
@@ -188,12 +180,8 @@ export const skills: SkillGroup[] = [
         level: 7,
       },
       {
-        name: 'C',
+        name: 'Java',
         level: 7,
-      },
-      {
-        name: 'OpenCV',
-        level: 6,
       },
     ],
   },
@@ -210,72 +198,22 @@ export const portfolioItems: PortfolioItem[] = [
     url: 'https://reactresume.com',
     image: porfolioImage1,
   },
-  {
-    title: 'Project title 2',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage2,
-  },
-  {
-    title: 'Project title 3',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage3,
-  },
-  {
-    title: 'Project title 4',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage4,
-  },
-  {
-    title: 'Project title 5',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage5,
-  },
-  {
-    title: 'Project title 6',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage6,
-  },
-  {
-    title: 'Project title 7',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage7,
-  },
-  {
-    title: 'Project title 8',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage8,
-  },
-  {
-    title: 'Project title 9',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage9,
-  },
-  {
-    title: 'Project title 10',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage10,
-  },
-  {
-    title: 'Project title 11',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage11,
-  },
 ];
 
 /**
  * Resume section -- TODO: Standardize resume contact format or offer MDX
  */
 export const education: TimelineItem[] = [
+  {
+    date: 'Sep 2022 - Now',
+    location: 'University of Ghent',
+    title: 'Doctorate of Computer Science Engineering',
+    content: (
+      <p>
+        Currently I am focusing on Time-Sensitive Networks (TSN) and mmWave MIMO systems. My research aims to leverage MIMO technology to optimize TSN networks for improved performance. I am also involved in multiple projects, including "SHAPE: Next Generation Wireless Networks.
+      </p>
+    ),
+  },
   {
     date: 'Sep 2016 - Jan 2019',
     location: 'Sharif University of Technology',
@@ -302,17 +240,17 @@ export const education: TimelineItem[] = [
 
 export const experience: TimelineItem[] = [
   {
-    date: 'Sep 2021 - Present',
-    location: 'RKAA Group',
+    date: 'Sep 2021 - Sep 2022',
+    location: 'RKAA Group - Part time',
     title: 'Full-stack Developer',
     content: (
       <p>
-        At RKAA Group, a company active in smart home devices manufacturing, I am responsible for developing software infrastructure to support smart home systems. My role involves extensive use of technologies including Micropython, NodeJS, React-Native, React, and MongoDB. I work closely under the supervision of Dr. Shragim Shirkhanlou to innovate and implement robust solutions for smart home integration.
+        At RKAA Group, a company active in smart home devices manufacturing, I was responsible for developing software infrastructure to support smart home systems. My role involves extensive use of technologies including Micropython, NodeJS, React-Native, React, and MongoDB. I worked closely under the supervision of Dr. Shragim Shirkhanlou to innovate and implement robust solutions for smart home integration.
       </p>
     ),
   },
   {
-    date: 'Nov 2019 - Aug 2021',
+    date: 'Nov 2019 - Aug 2022',
     location: 'Center for Infrastructure Sustainability and Resilience Research at Sharif University',
     title: 'Full-stack Developer',
     content: (
@@ -345,17 +283,7 @@ export const testimonial: TestimonialSection = {
       name: 'John Doe',
       text: 'Use this as an opportunity to promote what it is like to work with you. High value testimonials include ones from current or past co-workers, managers, or from happy clients.',
       image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
-    },
-    {
-      name: 'Jane Doe',
-      text: 'Here you should write some nice things that someone has said about you. Encourage them to be specific and include important details (notes about a project you were on together, impressive quality produced, etc).',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
-    },
-    {
-      name: 'Someone else',
-      text: 'Add several of these, and keep them as fresh as possible, but be sure to focus on quality testimonials with strong highlights of your skills/work ethic.',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/69.jpg',
-    },
+    }
   ],
 };
 
@@ -374,8 +302,8 @@ export const contact: ContactSection = {
     },
     {
       type: ContactType.Location,
-      text: 'District 5, Karaj, Iran',
-      href: 'https://maps.google.com/?q=District+5,+Karaj,+Iran',
+      text: 'Technologiepark-Zwijnaarde 126, 9052 Gent, Belgium',
+      href: 'https://maps.app.goo.gl/qywCi2ddwULW7P8Z7',
     },
     {
       type: ContactType.Github,
@@ -384,8 +312,8 @@ export const contact: ContactSection = {
     },
     {
       type: ContactType.Instagram,
-      text: '@mrheydarian',
-      href: 'https://instagram.com/mrheydarian',
+      text: '@mrhsce',
+      href: 'https://instagram.com/mrhsce',
     },
   ],
 };
@@ -395,8 +323,8 @@ export const contact: ContactSection = {
  */
 export const socialLinks: Social[] = [
   {label: 'Github', Icon: GithubIcon, href: 'https://github.com/mrhsce'},
-  {label: 'Instagram', Icon: InstagramIcon, href: 'https://instagram.com/mrheydarian'},
-  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'http://ce.sharif.edu/~heidarian'}, // Assuming LinkedIn icon can be used for a personal website as a placeholder
-  {label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/users/8553186/tim-baker'},
-  {label: 'Twitter', Icon: TwitterIcon, href: 'https://twitter.com/TimBakerx'},
+  {label: 'Instagram', Icon: InstagramIcon, href: 'https://instagram.com/mrhsce'},
+  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/mrheydarian/'}, // Assuming LinkedIn icon can be used for a personal website as a placeholder
+  {label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/users/2063639/mohammadreza-heydarian'},
+  {label: 'X', Icon: TwitterIcon, href: 'https://x.com/M_R_Heydarian'},
 ];

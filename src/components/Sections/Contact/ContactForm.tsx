@@ -28,14 +28,19 @@ const ContactForm: FC = memo(() => {
     },
     [data],
   );
-
+  // TODO implement the sending mechanism
   const handleSendMessage = useCallback(
-    async (event: React.FormEvent<HTMLFormElement>) => {
+    (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      /**
-       * This is a good starting point to wire up your form submission logic
-       * */
-      console.log('Data to send: ', data);
+
+      const subject = `Contact Form Submission from ${data.name}`;
+      const body = `Name: ${data.name}\nEmail: ${data.email}\n\nMessage: ${data.message}`;
+
+      // Create a mailto link
+      const mailtoLink = `mailto:mrhsce@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      // Redirect user to their email client
+      window.location.href = mailtoLink;
     },
     [data],
   );
