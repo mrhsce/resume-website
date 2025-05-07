@@ -73,13 +73,7 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I am currently a <strong className="text-stone-100">PhD researcher at Ghent University - Imec</strong>, where I am part of the <strong className="text-stone-100">Fixed Internet Architectures & Optical Networks (FARON) research group</strong>. I earned my <strong className="text-stone-100">MSc in Computer Engineering</strong> from Sharif University of Technology, Iran, in 2019, and my <strong className="text-stone-100">BSc from the Iran University of Science and Technology</strong> in 2016.
-      </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        With a deep passion for <strong className="text-stone-100">software development</strong> and research in <strong className="text-stone-100">IoT, Cyber-Physical Systems</strong>, and <strong className="text-stone-100">Machine Learning</strong>, I bring over seven years of professional experience. My PhD research focuses on <strong className="text-stone-100">Time-Sensitive Networks (TSN)</strong> and <strong className="text-stone-100">mmWave MIMO systems</strong>, with the goal of leveraging MIMO technology to optimize TSN networks for improved performance. I am also involved in several projects, including <strong className="text-stone-100">"SHAPE: Next Generation Wireless Networks"</strong>. I thrive on solving complex industrial challenges and am always eager to learn and adopt new technologies.
-      </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        Outside of work, I enjoy <strong className="text-stone-100">reading</strong>, <strong className="text-stone-100">listening to podcasts</strong>, playing <strong className="text-stone-100">video games</strong>, <strong className="text-stone-100">cycling</strong>, and <strong className="text-stone-100">mountain hiking</strong>—activities that help me maintain a balanced and healthy lifestyle.
+        <strong className="text-stone-100">PhD researcher at Ghent University - Imec</strong> focusing on <strong className="text-stone-100">Time-Sensitive Networks (TSN)</strong> and <strong className="text-stone-100">mmWave MIMO systems</strong>. With over seven years of professional experience, I specialize in <strong className="text-stone-100">software development</strong>, <strong className="text-stone-100">IoT</strong>, and <strong className="text-stone-100">Machine Learning</strong>. I am passionate about solving complex problems and continuously exploring new technologies.
       </p>
     </>
   ),
@@ -104,7 +98,11 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic, // Assuming 'profilepic' is the correct reference to his profile picture
-  description: `PhD researcher at Ghent University focusing on Time-Sensitive Networks (TSN) and mmWave MIMO systems. With over seven years of professional experience, I specialize in software development, IoT, and Machine Learning. I am passionate about solving complex problems and continuously exploring new technologies.`,
+  description: `PhD researcher at Ghent University - Imec, where I am part of the Fixed Internet Architectures & Optical Networks (FARON) research group. I earned my MSc in Computer Engineering from Sharif University of Technology, Iran, in 2019, and my BSc from the Iran University of Science and Technology in 2016.
+
+With a deep passion for software development and research in IoT, Cyber-Physical Systems, and Machine Learning, I bring over seven years of professional experience. My PhD research focuses on Time-Sensitive Networks (TSN) and mmWave MIMO systems, with the goal of leveraging MIMO technology to optimize TSN networks for improved performance. I am involved in several projects, including "SHAPE: Next Generation Wireless Networks" and HPC. I thrive on solving complex industrial challenges and am always eager to learn and adopt new technologies.
+
+Outside of work, I enjoy reading, listening to podcasts, playing video games, cycling, and mountain hiking—activities that help me maintain a balanced and healthy lifestyle.`,
   aboutItems: [
     {label: 'Location', text: 'Technologiepark-Zwijnaarde 126, 9052 Gent, Belgium', Icon: MapIcon},
     {label: 'Age', text: '30', Icon: CalendarIcon},
@@ -210,7 +208,7 @@ export const education: TimelineItem[] = [
     title: 'Doctorate of Computer Science Engineering',
     content: (
       <p>
-        Currently I am focusing on Time-Sensitive Networks (TSN) and mmWave MIMO systems. My research aims to leverage MIMO technology to optimize TSN networks for improved performance. I am also involved in multiple projects, including "SHAPE: Next Generation Wireless Networks.
+        Currently I am focusing on Time-Sensitive Networks (TSN) and mmWave MIMO systems. My research aims to leverage MIMO technology to optimize TSN networks for improved performance. I am involved in multiple projects, including "SHAPE: Next Generation Wireless Networks" and HPC.
       </p>
     ),
   },
