@@ -248,7 +248,7 @@ export const skills: SkillGroup[] = [
  */
 export const projects: TimelineItem[] = [
   {
-    date: '2023 - 2024',
+    date: '2025',
     location: 'Personal Project',
     title: 'IoT Smart Home Monitoring and Control System',
     content: (
@@ -260,7 +260,7 @@ export const projects: TimelineItem[] = [
     ),
   },
   {
-    date: '2023',
+    date: '2025 - 2026',
     location: 'Personal Project',
     title: 'Investment Fund Reporting Telegram Bot',
     content: (
@@ -272,7 +272,7 @@ export const projects: TimelineItem[] = [
     ),
   },
   {
-    date: '2021 - 2023',
+    date: '2016',
     location: 'Personal Project',
     title: 'Vision-Based Drone Guidance System',
     content: (
@@ -284,7 +284,7 @@ export const projects: TimelineItem[] = [
     ),
   },
   {
-    date: '2020 - 2021',
+    date: '2019',
     location: 'Personal Project',
     title: 'Android VoIP Client Using PJSIP',
     content: (
@@ -295,7 +295,7 @@ export const projects: TimelineItem[] = [
     ),
   },
   {
-    date: '2019 - 2020',
+    date: '2018',
     location: 'Full-Stack Project',
     title: 'Locksmith Dispatch Platform',
     content: (
@@ -312,7 +312,7 @@ export const projects: TimelineItem[] = [
  */
 export const awards: TimelineItem[] = [
   {
-    date: '2024',
+    date: '2015',
     location: 'Iran',
     title: 'Top 0.2% in Iranian National Graduate Entrance Exam',
     content: (
@@ -332,7 +332,7 @@ export const awards: TimelineItem[] = [
     ),
   },
   {
-    date: '2012',
+    date: '2008',
     location: 'Iran',
     title: 'NODET Excellence Recognition',
     content: (

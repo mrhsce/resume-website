@@ -1,16 +1,20 @@
 import {Dialog, Transition} from '@headlessui/react';
-import {Bars3BottomRightIcon} from '@heroicons/react/24/outline';
+import {Bars3BottomRightIcon, MoonIcon, SunIcon} from '@heroicons/react/24/outline';
 import classNames from 'classnames';
 import Link from 'next/link';
-import {FC, Fragment, memo, useCallback, useMemo, useState} from 'react';
+import {FC, Fragment, memo, useCallback, useEffect, useMemo, useState} from 'react';
 
 import {SectionId} from '../../data/data';
 import {useNavObserver} from '../../hooks/useNavObserver';
+import useTheme from '../../hooks/useTheme';
 
 export const headerID = 'headerNav';
 
 const Header: FC = memo(() => {
   const [currentSection, setCurrentSection] = useState<SectionId | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const {theme, toggleTheme, isMounted} = useTheme();
   const navSections = useMemo(
     () => [SectionId.About, SectionId.Resume, SectionId.Contact],
     // () => [SectionId.About, SectionId.Resume, SectionId.Portfolio, SectionId.Testimonials, SectionId.Contact],
@@ -23,23 +27,64 @@ const Header: FC = memo(() => {
 
   useNavObserver(navSections.map(section => `#${section}`).join(','), intersectionHandler);
 
+  useEffect(() => {
+    const onScroll = () => {
+      const currentScroll = window.scrollY;
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      setIsScrolled(currentScroll > 24);
+      setScrollProgress(maxScroll > 0 ? Math.min((currentScroll / maxScroll) * 100, 100) : 0);
+    };
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, {passive: true});
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <>
-      <MobileNav currentSection={currentSection} navSections={navSections} />
-      <DesktopNav currentSection={currentSection} navSections={navSections} />
+      <div className="fixed inset-x-0 top-0 z-50 h-1 bg-transparent">
+        <div className="h-full bg-orange-500 transition-all duration-200" style={{width: `${scrollProgress}%`}} />
+      </div>
+      <MobileNav
+        currentSection={currentSection}
+        isMounted={isMounted}
+        isScrolled={isScrolled}
+        navSections={navSections}
+        theme={theme}
+        toggleTheme={toggleTheme}
+      />
+      <DesktopNav
+        currentSection={currentSection}
+        isMounted={isMounted}
+        isScrolled={isScrolled}
+        navSections={navSections}
+        theme={theme}
+        toggleTheme={toggleTheme}
+      />
     </>
   );
 });
 
-const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}> = memo(
-  ({navSections, currentSection}) => {
+const DesktopNav: FC<{
+  navSections: SectionId[];
+  currentSection: SectionId | null;
+  isScrolled: boolean;
+  theme: 'light' | 'dark';
+  isMounted: boolean;
+  toggleTheme: () => void;
+}> = memo(({navSections, currentSection, isScrolled, theme, isMounted, toggleTheme}) => {
     const baseClass =
       '-m-1.5 p-1.5 rounded-md font-bold first-letter:uppercase hover:transition-colors hover:duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 sm:hover:text-orange-500 text-neutral-100';
     const activeClass = classNames(baseClass, 'text-orange-500');
     const inactiveClass = classNames(baseClass, 'text-neutral-100');
     return (
-      <header className="fixed top-0 z-50 hidden w-full bg-neutral-900/50 p-4 backdrop-blur sm:block" id={headerID}>
-        <nav className="flex justify-center gap-x-8">
+      <header
+        className={classNames(
+          'fixed top-0 z-50 hidden w-full p-4 backdrop-blur transition-colors duration-300 sm:block',
+          isScrolled ? 'bg-neutral-900/80 shadow-lg' : 'bg-neutral-900/45',
+        )}
+        id={headerID}>
+        <nav className="flex items-center justify-center gap-x-8">
           {navSections.map(section => (
             <NavItem
               activeClass={activeClass}
@@ -49,19 +94,31 @@ const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null
               section={section}
             />
           ))}
+          <button
+            aria-label="Toggle theme"
+            className="rounded-full border border-neutral-200/30 p-2 text-neutral-100 transition-all duration-300 hover:border-orange-400 hover:text-orange-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+            onClick={toggleTheme}
+            type="button">
+            {isMounted && theme === 'light' ? <MoonIcon className="h-5 w-5" /> : <SunIcon className="h-5 w-5" />}
+          </button>
         </nav>
       </header>
     );
-  },
-);
+  });
 
-const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}> = memo(
-  ({navSections, currentSection}) => {
+const MobileNav: FC<{
+  navSections: SectionId[];
+  currentSection: SectionId | null;
+  isScrolled: boolean;
+  theme: 'light' | 'dark';
+  isMounted: boolean;
+  toggleTheme: () => void;
+}> = memo(({navSections, currentSection, isScrolled, theme, isMounted, toggleTheme}) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const toggleOpen = useCallback(() => {
-      setIsOpen(!isOpen);
-    }, [isOpen]);
+      setIsOpen(previous => !previous);
+    }, []);
 
     const baseClass =
       'p-2 rounded-md first-letter:uppercase transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500';
@@ -71,7 +128,10 @@ const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}
       <>
         <button
           aria-label="Menu Button"
-          className="fixed right-2 top-2 z-40 rounded-md bg-orange-500 p-2 ring-offset-gray-800/60 hover:bg-orange-400 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 sm:hidden"
+          className={classNames(
+            'fixed right-2 z-40 rounded-md p-2 ring-offset-gray-800/60 transition-all duration-300 hover:bg-orange-400 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 sm:hidden',
+            isScrolled ? 'top-3 bg-orange-500/95 shadow-lg' : 'top-2 bg-orange-500',
+          )}
           onClick={toggleOpen}>
           <Bars3BottomRightIcon className="h-8 w-8 text-white" />
           <span className="sr-only">Open sidebar</span>
@@ -108,6 +168,14 @@ const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}
                       section={section}
                     />
                   ))}
+                  <button
+                    aria-label="Toggle theme"
+                    className="mt-4 flex w-max items-center gap-x-2 rounded-md border border-neutral-200/30 p-2 text-neutral-100 transition-all duration-300 hover:border-orange-400 hover:text-orange-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+                    onClick={toggleTheme}
+                    type="button">
+                    {isMounted && theme === 'light' ? <MoonIcon className="h-5 w-5" /> : <SunIcon className="h-5 w-5" />}
+                    <span>Theme</span>
+                  </button>
                 </nav>
               </div>
             </Transition.Child>
@@ -115,8 +183,7 @@ const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}
         </Transition.Root>
       </>
     );
-  },
-);
+  });
 
 const NavItem: FC<{
   section: string;
@@ -127,6 +194,7 @@ const NavItem: FC<{
 }> = memo(({section, current, inactiveClass, activeClass, onClick}) => {
   return (
     <Link
+      aria-current={current ? 'page' : undefined}
       className={classNames(current ? activeClass : inactiveClass)}
       href={`/#${section}`}
       key={section}

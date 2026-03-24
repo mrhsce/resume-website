@@ -12,6 +12,21 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+
+  .reveal-section {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal-section[data-visible='true'] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .timeline-dot {
+    box-shadow: 0 0 0 4px rgba(251, 146, 60, 0.18);
+  }
 }
 
 @supports (-webkit-touch-callout: none) {
@@ -38,6 +53,18 @@ body {
   color: #444444;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif;
   background-color: #fafafa;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 td,
